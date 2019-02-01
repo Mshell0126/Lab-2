@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Lab-2 RockPaperScissors</string>
     <string name="action_settings">Settings</string>
+    <string name="WelcomeText">Welcome to Rock-Paper-Scissors! Please choose your weapon:</string>
+    <string name="Rock_button">Rock</string>
+    <string name="Paper_Button">Paper</string>
+    <string name="Scissors_Button">Scissors</string>
 </resources>

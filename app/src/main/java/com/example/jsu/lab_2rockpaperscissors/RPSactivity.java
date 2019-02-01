@@ -1,5 +1,6 @@
 package com.example.jsu.lab_2rockpaperscissors;
 
+import android.content.pm.PathPermission;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class RPSactivity extends AppCompatActivity {
+    private int playerScore;
+    private int computerScore;
+
+    public enum Weapon{
+        ROCK("Rock"),
+        PAPER("Paper"),
+        SCISSORS("Scissors");
+
+        private String message;
+
+        private Weapon(String msg) {message = msg;}
+
+        @Override
+        public String toString() {return message;}
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
