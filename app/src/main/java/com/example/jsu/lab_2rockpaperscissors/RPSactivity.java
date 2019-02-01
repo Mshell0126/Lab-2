@@ -9,12 +9,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
+
+
+import android.widget.*;
 import android.util.Pair;
 
 import java.util.Arrays;
 import java.util.Random;
+
+import static com.example.jsu.lab_2rockpaperscissors.R.id.TextViewPlayerWeapon;
 
 public class RPSactivity extends AppCompatActivity {
     private int playerScore;
@@ -49,6 +52,10 @@ public class RPSactivity extends AppCompatActivity {
         public String draw(){return drawmsg;}
     }
 
+    private TextView plyrwpn;
+    private TextView cmptrwpn;
+    private TextView scoreboard;
+    private TextView resultText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +72,12 @@ public class RPSactivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        plyrwpn = (TextView) findViewById(TextViewPlayerWeapon);
+        cmptrwpn = (TextView)findViewById(R.id.TextViewComputerWeapon);
+        scoreboard = (TextView) findViewById(R.id.TextViewScores);
+        resultText = (TextView)findViewById(R.id.TextViewResult);
+        random = new Random();
     }
     
     public void rockButtonPressed(View v){
@@ -80,65 +93,69 @@ public class RPSactivity extends AppCompatActivity {
     }
     
     public void buttonPressed(String button){
+
         Weapon playerWeapon = null;
-        
+
         switch (button){
             case "Rock":
                 playerWeapon = Weapon.ROCK;
                 break;
-                
+
             case "Paper":
                 playerWeapon = Weapon.PAPER;
                 break;
-                
+
             case "Scissors":
                 playerWeapon = Weapon.SCISSORS;
                 break;
         }
-        
-        TextView plyrwpn = (TextView) findViewById(R.id.TextViewPlayerWeapon);
-        plyrwpn.setText("Player's Weapon: " + playerWeapon.toString());
+
+        String player_weapon = "Player's Weapon: " + playerWeapon.toString();
+        plyrwpn.setText(player_weapon);
 
         Weapon computerWeapon = pickWeapon();
-        TextView cmptrwpn = (TextView)findViewById(R.id.TextViewComputerWeapon);
-        cmptrwpn.setText("Computer's Weapon: " + computerWeapon.toString());
+
+        String computer_weapon = "Computer's Weapon: " + computerWeapon.toString();
+        cmptrwpn.setText(computer_weapon);
         
-        TextView resultText = (TextView)findViewById(R.id.TextViewResult);
+
 
         Pair matchup = new Pair(playerWeapon, computerWeapon);
-
+        String result = "";
         if (playerWeapon.equals(computerWeapon)){
-            resultText.setText(playerWeapon.drawmsg);
+            result = playerWeapon.draw();
+
         }
         else if (Arrays.asList(rockWins, paperWins, scissorsWins).contains(matchup)){
             playerScore ++;
-            resultText.setText("Player wins ... " + playerWeapon.condition());
+            result = "Player wins ... " + playerWeapon.condition();
 
         }
         else{
             computerScore ++;
-            resultText.setText("Computer wins ... " + computerWeapon.condition());
+            result = "Computer wins ... " + computerWeapon.condition();
         }
+        resultText.setText(result);
 
-        TextView scoreboard = (TextView) findViewById(R.id.TextViewScores);
-        scoreboard.setText("Player: " + playerScore + ", Computer: " + computerScore);
+        String scores = "Player: " + playerScore + ", Computer: " + computerScore;
+        scoreboard.setText(scores);
     }
     
     public Weapon pickWeapon(){
         Weapon w = null;
-        int choice = random.nextInt(3);
-        
+        int choice = random.nextInt(3) + 1;
+
         switch (choice) {
             
-            case 0:
+            case 1:
                 w = Weapon.ROCK;
                 break;
                 
-            case 1:
+            case 2:
                 w = Weapon.PAPER;
                 break;
             
-            case 2:
+            case 3:
                 w = Weapon.SCISSORS;
                 break;
         }

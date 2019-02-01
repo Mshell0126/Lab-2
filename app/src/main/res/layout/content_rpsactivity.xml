@@ -30,24 +30,31 @@
             android:id="@+id/ButtonRock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Rock_button" />
+            android:onClick="rockButtonPressed"
+            android:text="@string/Rock_button"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/ButtonPaper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Paper_Button" />
+            android:onClick="paperButtonPressed"
+            android:text="@string/Paper_Button"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/ButtonScissors"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Scissors_Button" />
+            android:onClick="scissorsButtonPressed"
+            android:text="@string/Scissors_Button"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/TextViewScores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/ScoresText"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -55,6 +62,7 @@
             android:id="@+id/TextViewPlayerWeapon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/PlayerWeaponText"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -62,6 +70,7 @@
             android:id="@+id/TextViewComputerWeapon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/ComputerWeaponText"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -69,6 +78,7 @@
             android:id="@+id/TextViewResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/ResultText"
             android:textAlignment="center"
             android:textSize="24sp" />
     </LinearLayout>

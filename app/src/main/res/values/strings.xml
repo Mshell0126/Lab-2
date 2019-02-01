@@ -5,4 +5,8 @@
     <string name="Rock_button">Rock</string>
     <string name="Paper_Button">Paper</string>
     <string name="Scissors_Button">Scissors</string>
+    <string name="ScoresText" />
+    <string name="PlayerWeaponText" />
+    <string name="ComputerWeaponText" />
+    <string name="ResultText" />
 </resources>
